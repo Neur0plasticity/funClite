@@ -1,11 +1,11 @@
 "use strict";
 exports.__esModule = true;
 var main_1 = require("./main");
-console.log(main_1.paramsLoader);
+console.log(main_1.func0Loader);
 var params = {
     a: "$p === 'a'"
 };
-var p = main_1.paramsLoader(params);
+var p = main_1.func0Loader(params);
 p.hasOwnProperty("params") || (function () { throw new Error(); })();
 p.hasOwnProperty("funClite") || (function () { throw new Error(); })();
 console.log(p["params"]["a"].toString());

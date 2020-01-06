@@ -1,13 +1,13 @@
-import { paramsLoader } from './main';
+import { func0Loader } from './main';
 
 
-console.log(paramsLoader);
+console.log(func0Loader);
 
 const params = {
     a: `$p === 'a'`
 };
 
-let p = paramsLoader(params);
+let p = func0Loader(params);
 
 p.hasOwnProperty("params") || (()=>{throw new Error()})()
 p.hasOwnProperty("funClite") || (()=>{throw new Error()})()

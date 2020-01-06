@@ -12,11 +12,11 @@ export interface func0loaderobj {
     funClite: Function,
     params:params
 }
-export interface paramsLoader {
+export interface func0Loader {
     (params:params): func0loaderobj
 }
 let pS = {};
-export const paramsLoader:paramsLoader = function(params){
+export const func0Loader:func0Loader = function(params){
 
     return {
         funClite: func0,

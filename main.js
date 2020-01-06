@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var pS = {};
-exports.paramsLoader = function (params) {
+exports.func0Loader = function (params) {
     return {
         funClite: func0,
         params: pS = (function (params_obj) {
