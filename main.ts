@@ -32,7 +32,7 @@ export const paramsLoader:paramsLoader = function(params){
             // };
             if (!params_obj) {throw new Error();}
             pS = params_obj;
-            for (let k in pS) { eval(`pS[k] = function(${k}){ return ${pS[k]}; }`); }
+            for (let k in pS) { eval(`pS[k] = function(${k}){ return ${pS[k].replace("$p",k)}; }`); }
             return pS;
         })(params)
     }
@@ -44,15 +44,19 @@ const func0 = function(func0props){
     return capsule(
       function(){
         funCvalidate(func0props.block,func0props.validate(arguments));
-        return func0props.block(arguments);
+        return func0props.block(...arguments);
       },
       func0props
     );
 };
 const funCvalidate = function(funcBlock,validate) {
+    if (typeof funcBlock    !== "function") {throw new Error();}
+    if (typeof funCvalidate !== "function") {throw new Error();}
     const _params = getParams(funcBlock);
     return function() {
-        return _params.every((e,i)=>{return pS[e](arguments[i]);}) && validate(arguments);
+        return _params.every((e,i)=>{
+            return pS[e](arguments[i]);
+        }) && validate(arguments);
     };
 };
 const capsule = function(func,props) {return Object.freeze(Object.assign(func,props));};
