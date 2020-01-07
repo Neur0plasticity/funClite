@@ -1,40 +1,25 @@
+import { params,paramsOBJ } from "../params/main";
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////// EXPORTED CODE
 ////////////////////////////////////////////////////////////////////////////////////////////////
-export interface params {
-    [index: string]: string
-}
 export interface func0props {
     validate: Function,
     block: Function
 }
 export interface func0loaderobj {
     funClite: Function,
-    params:params
+    paramsOBJ:paramsOBJ
 }
 export interface func0Loader {
-    (params:params): func0loaderobj
+    (paramsOBJ:paramsOBJ): func0loaderobj
 }
 let pS = {};
-export const func0Loader:func0Loader = function(params){
+export const func0Loader:func0Loader = function(paramsOBJ){
 
     return {
         funClite: func0,
-        params: pS = (function(params_obj) {
-            // let pS = { // params_obj
-                // name: function as string
-                // func: `$DTypes.function($p)`,
-                // prop: `$DTypes.string($p)`,
-                // obj:  `$DTypes.object($p)`,
-                // cb:   `$Dtypes.function($p)`,
-                // prop: `$Dtypes.string($p)`,
-                // val:  `$Dtypes.undefined($p)`
-            // };
-            if (!params_obj) {throw new Error();}
-            pS = params_obj;
-            for (let k in pS) { eval(`pS[k] = function(${k}){ return ${pS[k].replace("$p",k)}; }`); }
-            return pS;
-        })(params)
+        paramsOBJ: (pS = params(paramsOBJ))
     }
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////

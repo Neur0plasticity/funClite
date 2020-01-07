@@ -1,28 +1,11 @@
 "use strict";
 exports.__esModule = true;
+var main_1 = require("../params/main");
 var pS = {};
-exports.func0Loader = function (params) {
+exports.func0Loader = function (paramsOBJ) {
     return {
         funClite: func0,
-        params: pS = (function (params_obj) {
-            // let pS = { // params_obj
-            // name: function as string
-            // func: `$DTypes.function($p)`,
-            // prop: `$DTypes.string($p)`,
-            // obj:  `$DTypes.object($p)`,
-            // cb:   `$Dtypes.function($p)`,
-            // prop: `$Dtypes.string($p)`,
-            // val:  `$Dtypes.undefined($p)`
-            // };
-            if (!params_obj) {
-                throw new Error();
-            }
-            pS = params_obj;
-            for (var k in pS) {
-                eval("pS[k] = function(" + k + "){ return " + pS[k].replace("$p", k) + "; }");
-            }
-            return pS;
-        })(params)
+        paramsOBJ: (pS = main_1.params(paramsOBJ))
     };
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////

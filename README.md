@@ -52,7 +52,6 @@ print.block("boop");
 
 print("boop");
 
-
 Object.values(func).forEach((e,i)=>{
     try {
         e();
